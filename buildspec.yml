@@ -1,0 +1,22 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+  build:
+    commands:
+      - pip install --upgrade pip
+      - pip install -r requirements.txt 
+      - pip install pylint
+      - echo "Build started on date"
+
+  post_build:
+    commands:
+      - python --version
+      - pylint $CODEBUILD_SRC_DIR/*.py
+      - echo $CODEBUILD_SRC_DIR
+      - pylint $CODEBUILD_SRC_DIR/ticketing_system/*.py
+artifacts:
+  files:
+    - '*/'
+  name: ticketing_system
