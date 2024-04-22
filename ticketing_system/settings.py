@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-tte#_85%b7@bn%@jf-iet_vho15xb0d36ry^56r=3dl%8pbmo2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cppprojectsupport-env.eba-3bgyji52.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['cppprojectsupport-env.eba-3bgyji52.us-west-2.elasticbeanstalk.com','*']
 
 
 # Application definition

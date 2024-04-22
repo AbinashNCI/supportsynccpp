@@ -10,7 +10,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import TicketForm,CommentForm
 from django.contrib.auth.models import Group, User
 from .models import maintickets
-from notifylibrary.email_sender import EmailSender #my customised library
+#from notifylibrary.email_sender import EmailSender #my customised library
+from notifylibrary import EmailSender
 from django.core.mail import send_mail
 def ticket_list(request):
     tickets = maintickets.objects.all()
@@ -132,7 +133,7 @@ def ticket_create(request):
             form.save()
             print('message sent')
             
-            email_sender = EmailSender(
+            Email = EmailSender(
                 smtp_server=settings.NOTIFYLIB_EMAIL_HOST,
                 port=settings.NOTIFYLIB_EMAIL_PORT,
                 username=settings.NOTIFYLIB_EMAIL_HOST_USER,
@@ -148,7 +149,8 @@ def ticket_create(request):
 
             # Using  the library to send the email
             try:
-              email_sender.send_mail(subject, message, settings.NOTIFYLIB_EMAIL_HOST_USER, recipient_list)
+              #print(Email.send)
+              Email.send_mail(subject, message, settings.NOTIFYLIB_EMAIL_HOST_USER, recipient_list)
               print('message sent')
             except Exception as e:
     # Log the error for debugging

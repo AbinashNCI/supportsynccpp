@@ -6,6 +6,7 @@ phases:
   build:
     commands:
       - pip install --upgrade pip
+      - pip install 
       - pip install -r requirements.txt 
       - pip install pylint
       - echo "Build started on date"

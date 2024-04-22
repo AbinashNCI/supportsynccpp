@@ -15,7 +15,7 @@ idna==3.7
 jmespath==1.0.1
 mssql-django==1.4.2
 multidict==6.0.5
-notifylib==0.1
+notifylib==0.0.2
 psycopg2-binary==2.9.9
 PyJWT==2.8.0
 pyodbc==5.1.0
