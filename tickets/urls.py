@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+from django.contrib.auth.views import LogoutView
 app_name = 'tickets'
 
 urlpatterns = [
@@ -12,5 +12,9 @@ urlpatterns = [
     path('', views.login_view, name='login'),
     path('my_tickets/', views.my_tickets, name='my_tickets'),
     path('tickets/files/<int:ticket_id>/', views.serve_ticket_file, name='serve_ticket_file'),
+     path('contact/', views.contact, name='contact'),
+    
+     path('logout/', views.logout, name='logout'),
 
 ]
+ 

@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9; /* Light grey background */
+}
+
+.form-container {
+    background-color: #ffffff; /* White background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow around the form */
+    width: 90%;
+    max-width: 500px; /* Maximum width of the form */
+}
+
+.ticket-form h2 {
+    color: #333; /* Dark grey text color for the heading */
+    text-align: center;
+}
+
+.ticket-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-form label {
+    margin-top: 10px;
+}
+
+.ticket-form input, .ticket-form textarea, .ticket-form select {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px;
+}
+
+.ticket-form button {
+    background-color: #5cb85c; /* Green background */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.ticket-form button:hover {
+    background-color: #4cae4c; /* Slightly darker green */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Bootstrap's secondary button color */
+    text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}

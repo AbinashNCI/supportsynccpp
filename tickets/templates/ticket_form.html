@@ -1,11 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
 {% block content %}
 <h2>Fill in the ticket details</h2>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" name="submit_ticket" class="btn btn-primary">Submit</button>
     <a href="{% url 'tickets:ticket_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+<hr>
+
+<!-- Comments Section -->
+<h2>Comments</h2>
+{% for comment in comments %}
+<div class="comment">
+    <p><strong>{{ comment.author }}:</strong> {{ comment.text }}</p>
+    <p><em>Commented on {{ comment.created_at }}</em></p>
+</div>
+{% empty %}
+<p>No comments yet.</p>
+{% endfor %}
+
+<!-- Form for adding a new comment -->
+<h3>Add a Comment</h3>
+<form method="POST">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit" name="submit_comment" class="btn btn-secondary">Add Comment</button>
 </form>
 {% endblock %}

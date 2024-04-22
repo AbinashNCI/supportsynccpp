@@ -1,39 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-3">
-    <h2>My Tickets</h2>
-    <table class="table table-bordered">
-        <thead class="thead-light">
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for ticket in tickets %}
-            <tr>
-                <td>{{ ticket.title }}</td>
-                <td>{{ ticket.description|truncatechars:50 }}</td>
-                <td>{{ ticket.get_status_display }}</td>
-                <td>{{ ticket.created_at|date:"Y-m-d H:i" }}</td>
-                <td>{{ ticket.updated_at|date:"Y-m-d H:i" }}</td>
-                <td>
-                    <a href="{% url 'tickets:ticket_update' ticket.id %}" class="btn btn-primary">Edit</a>
-                    <a href="{% url 'tickets:serve_ticket_file' ticket.id %}">Download File</a>
-                    <!-- You can add more buttons here for other actions like delete, view, etc. -->
-                </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="6">No tickets found.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="container mt-5">
+    <h2 class="mb-4">My Tickets</h2>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.title }}</td>
+                    <td>{{ ticket.description|truncatechars:50 }}</td>
+                    <td>{{ ticket.get_status_display }}</td>
+                    <td>{{ ticket.created_at|date:"Y-m-d H:i" }}</td>
+                    <td>{{ ticket.updated_at|date:"Y-m-d H:i" }}</td>
+                    <td>
+                        <a href="{% url 'tickets:ticket_update' ticket.id %}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{% url 'tickets:serve_ticket_file' ticket.id %}" class="btn btn-sm btn-secondary">Download File</a>
+                        <!-- Add more action buttons if necessary -->
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center text-muted">No tickets found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

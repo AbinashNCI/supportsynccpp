@@ -75,12 +75,24 @@ WSGI_APPLICATION = 'ticketing_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+## = {
+ #   'default': {
+   #     'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME':  / 'db.sqlite3',
+   # }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'supportsync',
+        'USER': 'Abinash',
+        'PASSWORD': 'cloud2000',
+        'HOST': 'supportsync.clduwfwypz0p.us-west-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
+
+
 
 
 # Password validation
@@ -101,6 +113,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# settings.py
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -126,8 +143,11 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'abinashsp123@gmail.com'
-EMAIL_HOST_PASSWORD = 'Abin@2000'
-
-
+EMAIL_HOST_PASSWORD = 'okytzkjjwtwhkegu'
+NOTIFYLIB_EMAIL_HOST = 'smtp.gmail.com'
+NOTIFYLIB_EMAIL_PORT = 587
+NOTIFYLIB_EMAIL_HOST_USER = 'abinashsp123@gmail.com'
+NOTIFYLIB_EMAIL_HOST_PASSWORD = 'okytzkjjwtwhkegu'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'tickets:ticket_list'
+ADMIN_EMAIL='abinashsp123@gmail.com'
